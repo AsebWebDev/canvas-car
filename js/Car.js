@@ -7,6 +7,7 @@ class Car {
     this.y = initialY // center of the car (not the top-left corner)
     this.angle = initialAngle
     this.speed = 0
+    this.vAngle = 0
     this.img = new Image()
     this.img.src = `images/Car_${color}_Front.png`
   }
@@ -19,7 +20,9 @@ class Car {
     ctx.restore()
   }
   update() {
-    // TODO
+    this.angle += this.vAngle
+    this.y +=  this.speed * Math.cos(this.angle)
+    this.x += -this.speed * Math.sin(this.angle)
   }
   
 }
